@@ -1,8 +1,9 @@
 # AllHeaders - HTTP Status Code Generator
 
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/allheaders/allheaders)
+[![Version](https://img.shields.io/badge/version-2.2.0-blue.svg)](https://github.com/YannDecoopman/allheaders)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Live Site](https://img.shields.io/badge/live-allheaders.com-brightgreen.svg)](https://allheaders.com)
+[![Security](https://img.shields.io/badge/security-audited-green.svg)](SECURITY-SCAN-RESULTS.md)
 
 A comprehensive HTTP status code generator for testing and development. Get any HTTP status code instantly with support for all HTTP methods, custom headers, and an intuitive web interface.
 
@@ -218,6 +219,40 @@ See `config/nginx-simple.conf` for reverse proxy settings:
 - Gzip compression
 - Rate limiting
 
+## 🔒 Security
+
+AllHeaders follows security best practices and has undergone comprehensive security auditing:
+
+### 🛡️ Security Features
+- **Environment-based configuration** - No hardcoded secrets
+- **Secure session management** - HttpOnly cookies, CSRF protection
+- **Input validation** - All user inputs sanitized
+- **Access logging** - Comprehensive request tracking
+- **API key masking** - Sensitive data hidden in responses
+
+### 🔍 Security Audit
+The project has been audited for common security vulnerabilities:
+- ✅ No hardcoded passwords or API keys
+- ✅ No SMTP credentials exposure
+- ✅ No private keys in codebase  
+- ✅ No GitHub tokens or secrets
+- ✅ Environment-based configuration only
+
+**📋 Full audit report**: [SECURITY-SCAN-RESULTS.md](SECURITY-SCAN-RESULTS.md)
+
+### 🔐 Recommended Security Practices
+```bash
+# Set strong admin password
+export ADMIN_PASSWORD="your-very-secure-password"
+
+# Configure Resend API securely (not in code)
+# Use admin panel: https://yourdomain.com/control-panel/email
+
+# Regular security updates
+npm audit
+npm audit fix
+```
+
 ### 📧 Email Configuration (Resend API)
 Configure weekly analytics reports via the admin panel:
 
@@ -248,9 +283,10 @@ pm2 monit              # Real-time monitoring
 ```
 
 ### Log Files
-- Application: `/var/log/allheaders/`
-- Nginx: `/var/log/nginx/allheaders.*.log`
-- SSL: `/var/log/letsencrypt/letsencrypt.log`
+- Application logs: `pm2 logs allheaders`
+- Access logs: `config/access-logs.json` (runtime)
+- Nginx logs: `/var/log/nginx/allheaders.*.log`
+- SSL logs: `/var/log/letsencrypt/letsencrypt.log`
 
 ## 🤝 Contributing
 
@@ -260,24 +296,46 @@ pm2 monit              # Real-time monitoring
 4. **Push** to branch: `git push origin feature/amazing-feature`  
 5. **Open** a Pull Request
 
-See [DEVELOPMENT.md](DEVELOPMENT.md) for detailed development setup.
+See [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) for detailed development setup.
 
 ## 📋 Project Structure
 
 ```
 allheaders/
-├── server.js              # Main application server
-├── package.json           # Dependencies and scripts
-├── ecosystem.config.js    # PM2 configuration
-├── nginx-simple.conf      # Nginx configuration
-├── start.sh              # Development/production starter
-├── deploy.sh            # Automated deployment
-├── test.sh             # Basic test suite
-├── test-enhanced.sh   # Enhanced test suite
-├── README.md         # This file
-├── CHANGELOG.md     # Version history
-├── DEVELOPMENT.md  # Development guide
-└── DEPLOYMENT.md  # Deployment guide
+├── 📄 server.js                    # Main application server
+├── 📄 package.json                 # Dependencies and scripts  
+├── 📄 README.md                    # This file
+├── 📄 LICENSE                      # MIT License
+├── 📄 .gitignore                   # Git ignore rules
+├── 📄 SECURITY-SCAN-RESULTS.md     # Security audit report
+│
+├── 📁 docs/                        # 📚 Documentation
+│   ├── ADMIN-GUIDE.md              # Admin panel guide
+│   ├── ANALYTICS-GUIDE.md          # Analytics features
+│   ├── DEVELOPMENT.md              # Development setup
+│   ├── DEPLOYMENT.md               # Deployment guide
+│   ├── CHANGELOG.md                # Version history
+│   ├── SSL_CONFIG.md               # SSL setup guide
+│   └── ...                         # More documentation
+│
+├── 📁 config/                      # ⚙️ Configuration Files
+│   ├── nginx-simple.conf           # Nginx reverse proxy
+│   ├── ecosystem.config.js         # PM2 configuration
+│   ├── email-config.json           # Email settings (gitignored)
+│   ├── access-logs.json            # Runtime logs (gitignored)
+│   └── ...                         # Other configs
+│
+├── 📁 scripts/                     # 🚀 Deployment & Utilities
+│   ├── deploy.sh                   # Automated deployment
+│   └── start.sh                    # Development starter
+│
+└── 📁 tests/                       # 🧪 Test Suite
+    ├── test.sh                     # Basic tests
+    ├── test-enhanced.sh            # Full feature tests
+    ├── test-admin.sh               # Admin panel tests
+    ├── test-analytics.sh           # Analytics tests
+    ├── test-email.sh               # Email tests (legacy)
+    └── test-resend-email.sh        # Resend API tests
 ```
 
 ## 🐛 Troubleshooting
