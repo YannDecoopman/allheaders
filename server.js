@@ -6,6 +6,9 @@ const crypto = require('crypto');
 const https = require('https');
 const cron = require('node-cron');
 
+// Load environment variables from .env file
+require('dotenv').config();
+
 // Admin configuration
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'changeMe123!';
 const RULES_FILE = path.join(__dirname, 'config', 'domain-rules.json');

@@ -110,6 +110,7 @@
     "allheaders": "./start.sh"
   },
   "dependencies": {
+    "dotenv": "^17.2.1",
     "node-cron": "^4.2.1"
   }
 }
