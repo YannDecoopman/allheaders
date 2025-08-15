@@ -1,0 +1,29 @@
+[Unit]
+Description=AllHeaders HTTP Status Code Generator
+Documentation=https://github.com/allheaders/allheaders
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www
+Environment=NODE_ENV=production
+Environment=PORT=3000
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=10
+KillMode=mixed
+KillSignal=SIGINT
+TimeoutStopSec=5
+SyslogIdentifier=allheaders
+
+# Limites de sécurité
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/www
+ReadWritePaths=/var/log/allheaders
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,115 @@
+{
+  "name": "allheaders",
+  "version": "2.2.0",
+  "description": "Comprehensive HTTP Status Code Generator with modern UI, multiple HTTP methods support, custom headers, and developer-friendly features for API testing",
+  "main": "server.js",
+  "homepage": "https://allheaders.com",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js",
+    "production": "NODE_ENV=production node server.js",
+    "test": "./test.sh",
+    "test:enhanced": "./test-enhanced.sh",
+    "test:analytics": "./test-analytics.sh",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop allheaders",
+    "pm2:restart": "pm2 restart allheaders",
+    "pm2:logs": "pm2 logs allheaders",
+    "pm2:monit": "pm2 monit",
+    "deploy": "sudo ./deploy.sh",
+    "health": "curl -s http://localhost:3000/health"
+  },
+  "keywords": [
+    "http",
+    "status-codes",
+    "api-testing",
+    "web-development",
+    "rest-api",
+    "http-server",
+    "testing-tools",
+    "developer-tools",
+    "nodejs",
+    "express-alternative",
+    "cors",
+    "custom-headers",
+    "curl-generator",
+    "http-methods",
+    "get",
+    "post",
+    "put",
+    "delete",
+    "patch",
+    "head",
+    "options",
+    "404",
+    "500",
+    "200",
+    "418",
+    "json-api",
+    "production-ready"
+  ],
+  "author": {
+    "name": "Yann Decoopman",
+    "url": "https://www.linkedin.com/in/yanndecoopman/",
+    "email": "contact@allheaders.com"
+  },
+  "contributors": [
+    {
+      "name": "Yann Decoopman",
+      "url": "https://www.linkedin.com/in/yanndecoopman/"
+    }
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "os": [
+    "linux",
+    "darwin",
+    "win32"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/allheaders/allheaders.git",
+    "directory": "."
+  },
+  "bugs": {
+    "url": "https://github.com/allheaders/allheaders/issues",
+    "email": "issues@allheaders.com"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/allheaders"
+  },
+  "files": [
+    "server.js",
+    "ecosystem.config.js",
+    "nginx-simple.conf",
+    "start.sh",
+    "test.sh",
+    "test-enhanced.sh",
+    "test-analytics.sh",
+    "ANALYTICS-GUIDE.md",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "pm2": "^5.3.0"
+  },
+  "peerDependencies": {
+    "certbot": "*",
+    "nginx": "*"
+  },
+  "config": {
+    "port": 3000,
+    "host": "0.0.0.0"
+  },
+  "bin": {
+    "allheaders": "./start.sh"
+  },
+  "dependencies": {
+    "node-cron": "^4.2.1"
+  }
+}

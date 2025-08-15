@@ -1,0 +1,89 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Production logs
+logs/
+*.log
+*.log.*
+
+# PM2 runtime files
+.pm2/
+
+# Configuration files with sensitive data
+config/email-config.json
+config/domain-rules.json
+config/access-logs.json
+config/access-logs-archive-*.json
+
+# SSL certificates
+*.pem
+*.key
+*.cert
+*.crt
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Temporary files
+/tmp/
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Backup files
+*.backup
+*.bak
+
+# Test coverage
+nyc_output/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# Cookie files (from testing)
+/tmp/cookies
+/tmp/admin_cookies
+/tmp/*.json
+
+# Claude Code configuration (local only)
+.claude/
